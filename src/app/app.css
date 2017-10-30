@@ -14,9 +14,13 @@
     margin-bottom: 20px
 }
 
-.logo img{
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
+.logo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
     margin: auto;
+}
+
+.logo-text {
+    text-align: center;
 }
