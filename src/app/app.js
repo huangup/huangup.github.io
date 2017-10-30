@@ -14,27 +14,30 @@ export default {
     created() {
     },
     mounted: function () {
-        // 侧边栏和主体部分高度适应屏幕
-        // 网页主体宽度和高度
-        const totalHeight = window.innerHeight
-
-        // 头部高度
-        const headerHeight = parseInt(document.getElementById('app-header').style.height)
-
-        // 底部高度
-        const footerHeight = parseInt(document.getElementById('app-footer').style.height)
-
-        const asideDOM = document.getElementById('app-aside')
-        asideDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
-        console.log(headerHeight, footerHeight)
-        console.log(totalHeight)
+        this.resizeContent()
     },
     beforeDestroy: function () {
     },
     destoryed() {
     },
     components: {},
-    methods: {},
+    methods: {
+        resizeContent: function() { // 侧边栏和主体部分高度适应屏幕
+            // 网页主体宽度和高度
+            const totalHeight = window.innerHeight
+
+            // 头部高度
+            const headerHeight = parseInt(document.getElementById('app-header').style.height)
+
+            // 底部高度
+            const footerHeight = parseInt(document.getElementById('app-footer').style.height)
+
+            const asideDOM = document.getElementById('app-aside')
+            const mainDOM = document.getElementById('app-main')
+            asideDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
+            mainDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
+        }
+    },
     computed: {
         isEngStandardHomework: function () {
             return this.$route.query.homework_type == 9
