@@ -1,13 +1,11 @@
 <el-menu :default-active="menuIndex"
-         router="true"
-         @open="handleOpen"
-         @close="handleClose"
+         :router="true"
          :collapse="false">
-    <el-menu-item index="/" route="/">
+    <el-menu-item index="/" :route="{path: '/'}">
         <i class="el-icon-document"></i>
         <span slot="title">博客文章</span>
     </el-menu-item>
-    <el-menu-item index="/info" route="/info">
+    <el-menu-item index="/info" :route="{path: '/info'}">
         <i class="el-icon-info"></i>
         <span slot="title">个人信息</span>
     </el-menu-item>
