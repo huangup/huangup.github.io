@@ -1,0 +1,8 @@
+.sideBar {
+    background-color: transparent;
+    border-right: none;
+}
+
+.sideBar-item {
+    padding-left: 70px !important;
+}
