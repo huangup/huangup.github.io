@@ -1,3 +1,5 @@
+import SideBar from '../components/sideBar/sideBar.vue'
+
 export default {
     data: function () {
         return {
@@ -14,13 +16,15 @@ export default {
     created() {
     },
     mounted: function () {
-        this.resizeContent()
+        this.resizeContent();
     },
     beforeDestroy: function () {
     },
     destoryed() {
     },
-    components: {},
+    components: {
+        SideBar
+    },
     methods: {
         resizeContent: function() { // 侧边栏和主体部分高度适应屏幕
             // 网页主体宽度和高度
@@ -32,10 +36,8 @@ export default {
             // 底部高度
             const footerHeight = parseInt(document.getElementById('app-footer').style.height)
 
-            const asideDOM = document.getElementById('app-aside')
-            const mainDOM = document.getElementById('app-main')
-            asideDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
-            mainDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
+            const contentDOM = document.getElementById('app-content')
+            contentDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
         }
     },
     computed: {
