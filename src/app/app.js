@@ -30,14 +30,8 @@ export default {
             // 网页主体宽度和高度
             const totalHeight = window.innerHeight
 
-            // 头部高度
-            const headerHeight = parseInt(document.getElementById('app-header').style.height)
-
-            // 底部高度
-            const footerHeight = parseInt(document.getElementById('app-footer').style.height)
-
             const contentDOM = document.getElementById('app-content')
-            contentDOM.style.height = (totalHeight - headerHeight - footerHeight) + 'px'
+            contentDOM.style.height = totalHeight + 'px'
         }
     },
     computed: {

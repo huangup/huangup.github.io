@@ -1,12 +1,11 @@
-<el-container>
-    <el-header id="app-header">Header</el-header>
-    <el-container id="app-content">
-        <el-aside id="app-aside">
-            <side-bar />
-        </el-aside>
-        <el-main id="app-main">
-            <router-view/>
-        </el-main>
-    </el-container>
-    <el-footer id="app-footer">Footer</el-footer>
+<el-container id="app-content">
+    <el-aside id="app-aside">
+        <div class="logo">
+            <img src="../../img/logo.png">
+        </div>
+        <side-bar/>
+    </el-aside>
+    <el-main id="app-main">
+        <router-view/>
+    </el-main>
 </el-container>
