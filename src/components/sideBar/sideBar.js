@@ -1,7 +1,6 @@
 export default {
     data() {
         return {
-            name: '侧边栏',
             menuIndex: '/'
         }
     },
