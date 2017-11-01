@@ -85,8 +85,8 @@ export default {
                             {
                                 name: 'This Love',
                                 author: 'Maroon 5',
-                                src: 'https://huangup.github.io/audio/maroon5-thisLove.mp3',
-                                cover: 'https://huangup.github.io/img/audioCover/maroon5-thisLove.png'
+                                src: 'https://huangup.github.io/audio/maroon5-thislove.mp3',
+                                cover: 'https://huangup.github.io/img/audioCover/maroon5-thislove.png'
                             }
                         ]
                     }
