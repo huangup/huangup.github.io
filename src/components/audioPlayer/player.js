@@ -67,26 +67,26 @@ export default {
                             {
                                 name: '娑婆世界',
                                 author: '张杰',
-                                src: 'file:///E:/projects/huangup.github.io/audio/zhangjie-suoposhijie.mp3',
-                                cover: 'file:///E:/projects/huangup.github.io/img/audioCover/zhangjie-suoposhijie.png'
+                                src: 'https://huangup.github.io/audio/zhangjie-suoposhijie.mp3',
+                                cover: 'https://huangup.github.io/img/audioCover/zhangjie-suoposhijie.png'
                             },
                             {
                                 name: '一念之间',
                                 author: '张杰/莫文蔚',
-                                src: 'file:///E:/projects/huangup.github.io/audio/zhangjie-yinianzhijian.mp3',
-                                cover: 'file:///E:/projects/huangup.github.io/img/audioCover/zhangjie-yinianzhijian.png'
+                                src: 'https://huangup.github.io/audio/zhangjie-yinianzhijian.mp3',
+                                cover: 'https://huangup.github.io/img/audioCover/zhangjie-yinianzhijian.png'
                             },
                             {
                                 name: 'Maps',
                                 author: 'Maroon 5',
-                                src: 'file:///E:/projects/huangup.github.io/audio/maroon5-maps.mp3',
-                                cover: 'file:///E:/projects/huangup.github.io/img/audioCover/maroon5-maps.png'
+                                src: 'https://huangup.github.io/audio/maroon5-maps.mp3',
+                                cover: 'https://huangup.github.io/img/audioCover/maroon5-maps.png'
                             },
                             {
                                 name: 'This Love',
                                 author: 'Maroon 5',
-                                src: 'file:///E:/projects/huangup.github.io/audio/maroon5-thisLove.mp3',
-                                cover: 'file:///E:/projects/huangup.github.io/img/audioCover/maroon5-thisLove.png'
+                                src: 'https://huangup.github.io/audio/maroon5-thisLove.mp3',
+                                cover: 'https://huangup.github.io/img/audioCover/maroon5-thisLove.png'
                             }
                         ]
                     }
