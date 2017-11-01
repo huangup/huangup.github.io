@@ -34,6 +34,10 @@ module.exports = {
                 loader: 'url-loader'
             },
             {
+                test: /\.(mp3)(\?.*)?$/,
+                loader: 'url-loader'
+            },
+            {
                 test: /\.json$/,
                 use: 'json-loader'
             }

@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "element-ui": "^2.0.1",
+    "element-ui": "^2.0.2",
+    "skplayer": "^3.0.7",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   }
