@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Article from '../components/article/article.vue'
+import ArticleList from '../components/articleList/articleList.vue'
 import ArticleDetail from '../components/articleDetail/articleDetail.vue'
 import Info from '../components/info/info.vue'
 
@@ -11,7 +11,7 @@ export default new Router({
         {
             path: '/',
             name: 'article',
-            component: Article
+            component: ArticleList
         },
         {
             path: '/info',

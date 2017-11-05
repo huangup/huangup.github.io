@@ -1,4 +1,4 @@
-import articles from '../../../json-data/article.json'
+import articles from '../../../articles/articleList.json'
 export default {
     data() {
         return {
