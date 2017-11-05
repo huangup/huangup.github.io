@@ -1,3 +1,3 @@
 <template src="./articleList.html"></template>
 <script src="./articleList.js"></script>
-<style src="./articleList.css"></style>
+<style src="./articleList.css" scoped></style>
