@@ -7,7 +7,7 @@ export default {
             tableData: [],
             pageIndex: 1,
             pageSize: 10,
-            total: articles.total
+            total: articles.length
         }
     },
     created() {
@@ -24,7 +24,7 @@ export default {
             const result = [];
             const start = pageIndex * pageSize;
             const end = start + 10 < total ? start + 10 : total;
-            const list = articles.items.slice(start, end);
+            const list = articles.slice(start, end);
             list.forEach(item => {
                 result.push({
                     articleTitle: item.title,
