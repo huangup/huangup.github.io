@@ -4,7 +4,7 @@
   "description": "静态页面react脚手架",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dev-serve.js"
   },
   "keywords": [
     "vue"
@@ -23,11 +23,13 @@
     "json-loader": "^0.5.7",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
+    "vue-hot-reload-api": "^2.2.3",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.2",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
