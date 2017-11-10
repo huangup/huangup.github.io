@@ -8,6 +8,6 @@ window.onload = function () {
   }
   // window.parent.postMessage(obj, "http://localhost:8080");
   // window.parent.postMessage(obj, "http://localhost:63342");
-  // window.parent.postMessage(obj, "https://huangup.github.io");
+  window.parent.postMessage(obj, "https://huangup.github.io");
   window.parent.postMessage(obj, "http://www.huangup.top");
 }
