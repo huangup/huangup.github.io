@@ -19,7 +19,7 @@ export default new Router({
       component: Info
     },
     {
-      path: '/articleDetail/:id',
+      path: '/articleDetail/:articleId',
       name: 'articleDetail',
       component: ArticleDetail
     }

@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      id: this.$route.params.id,
+      articleId: this.$route.params.articleId,
       iframeHeight: 500
     }
   },
