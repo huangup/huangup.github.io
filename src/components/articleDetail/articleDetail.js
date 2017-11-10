@@ -14,7 +14,7 @@ export default {
         //可选：向来源窗口发送回执
         // event.source.postMessage("收到了", "https://huangup.github.io/articles");
       }
-    }, false);
+    }, false)
   },
   mounted() {
   }
