@@ -1,17 +1,19 @@
 <div>
-    <el-button-group class="player-button-group">
-        <el-button size="small" type="primary" :icon="noSound ? 'el-icon-remove-outline' : 'el-icon-bell'" @click="toggleSound" round></el-button>
-        <el-button size="small" type="primary" icon="el-icon-arrow-left" @click="prePlay"></el-button>
-        <el-button size="small" type="primary" :icon="playing ? 'el-icon-loading' : 'el-icon-caret-left'" @click="togglePlay"></el-button>
-        <el-button size="small" type="primary" icon="el-icon-arrow-right" @click="nextPlay"></el-button>
-        <el-button size="small" type="primary" icon="el-icon-setting" @click="showDialog" round></el-button>
-    </el-button-group>
-    <el-dialog title="skPlayer"
-               width="434px"
-               id="playerBoxDialog"
-               :visible.sync="dialogVisible"
-               :before-close="beforeCloseDialog"
-               center
-    >
-    </el-dialog>
+  <el-button-group class="player-button-group">
+    <el-button size="small" type="primary" :icon="noSound ? 'el-icon-remove-outline' : 'el-icon-bell'"
+               @click="toggleSound" round></el-button>
+    <el-button size="small" type="primary" icon="el-icon-arrow-left" @click="prePlay"></el-button>
+    <el-button size="small" type="primary" :icon="playing ? 'el-icon-loading' : 'el-icon-caret-left'"
+               @click="togglePlay"></el-button>
+    <el-button size="small" type="primary" icon="el-icon-arrow-right" @click="nextPlay"></el-button>
+    <el-button size="small" type="primary" icon="el-icon-setting" @click="showDialog" round></el-button>
+  </el-button-group>
+  <el-dialog title="skPlayer"
+             width="434px"
+             id="playerBoxDialog"
+             :visible.sync="dialogVisible"
+             :before-close="beforeCloseDialog"
+             center
+  >
+  </el-dialog>
 </div>

@@ -1,9 +1,9 @@
 .sideBar {
-    background-color: transparent;
-    border-right: none;
+  background-color: transparent;
+  border-right: none;
 }
 
 .sideBar-item {
-    padding-left: 70px !important;
-    margin-top: 20px;
+  padding-left: 70px !important;
+  margin-top: 20px;
 }

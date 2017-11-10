@@ -7,21 +7,21 @@ import Info from '../components/info/info.vue'
 Vue.use(Router)
 
 export default new Router({
-    routes: [
-        {
-            path: '/',
-            name: 'article',
-            component: ArticleList
-        },
-        {
-            path: '/info',
-            name: 'info',
-            component: Info
-        },
-        {
-            path: '/articleDetail/:id',
-            name: 'articleDetail',
-            component: ArticleDetail
-        }
-    ]
+  routes: [
+    {
+      path: '/',
+      name: 'article',
+      component: ArticleList
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: Info
+    },
+    {
+      path: '/articleDetail/:id',
+      name: 'articleDetail',
+      component: ArticleDetail
+    }
+  ]
 })
