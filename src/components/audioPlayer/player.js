@@ -81,7 +81,7 @@ export default {
         }
         player.toggleMute = () => {
           this.noSound = !this.noSound
-          player.audio.muted ? (player.audio.muted = !1, player.dom.volumebutton.classList.remove("skPlayer-quiet"), player.dom.volumeline_value.style.width = s.percentFormat(player.audio.volume)) : (player.audio.muted = !0, player.dom.volumebutton.classList.add("skPlayer-quiet"), player.dom.volumeline_value.style.width = "0%")
+          player.audio.muted ? (player.audio.muted = !1, player.dom.volumebutton.classList.remove("skPlayer-quiet"), player.dom.volumeline_value.style.width = s.percentFormat(player.audio.volume)) : (player.audio.muted = !0, player.dom.volumebutton.classList.add("skPlayer-quiet"), player.dom.volumeline_value.style.width = this.noSound ? "0%" : "100%")
         }
         player.toggleList = () => {
           this.listShow = !this.listShow
