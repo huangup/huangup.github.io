@@ -61,7 +61,7 @@ export default {
             //必需项,网易云方式指定填'cloud'
             type: 'cloud',
             //必需项,网易云音乐歌单id
-            source: 164590714
+            source: 993495939
           }
         })
 
