@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-p, div, h1, h2, h3 {
+/*p, div, h1, h2, h3 {
   word-break: break-all;
   word-wrap: break-word;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
@@ -19,4 +19,4 @@ p {
   letter-spacing: 1px;
   margin-top: 20px;
   text-indent: 34px;
-}
+}*/
