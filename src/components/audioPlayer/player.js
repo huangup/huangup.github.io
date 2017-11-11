@@ -4,7 +4,7 @@ import SkPlayer from 'skplayer'
 // 音乐播放器的容器DIV节点，初始挂在dialog组件的el-dialog节点中，最终要挂在el-dialog__body节点中
 const playerWrapper = document.createElement('div')
 playerWrapper.id = 'skPlayer'
-playerWrapper.style.height = '277px' || '100px'
+playerWrapper.style.height = '277px'
 
 let player = null // 插件配置实例化出来的音乐播放器对象
 
@@ -70,7 +70,7 @@ export default {
         // console.log('------->', player.pause)
         // console.log('------->', player.toggle)
         // console.log('------->', player.toggleMute) // 静音/取消
-        console.log('------->', player.toggleList) // 隐藏/显示列表
+        // console.log('------->', player.toggleList) // 隐藏/显示列表
 
         // skPlayer插件未提供'操作'的回调，so重写插件的api
         const _this = this
