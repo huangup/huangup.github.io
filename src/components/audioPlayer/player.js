@@ -1,15 +1,5 @@
 import SkPlayer from 'skplayer'
 
-import song_maps from '../../assets/audio/maroon5-maps.mp3'
-import song_thislove from '../../assets/audio/maroon5-thislove.mp3'
-import song_suoposhijie from '../../assets/audio/zhangjie-suoposhijie.mp3'
-import song_yinianzhijian from '../../assets/audio/zhangjie-yinianzhijian.mp3'
-
-import cover_maps from '../../assets/audioCover/maroon5-maps.png'
-import cover_thislove from '../../assets/audioCover/maroon5-thislove.png'
-import cover_suoposhijie from '../../assets/audioCover/zhangjie-suoposhijie.png'
-import cover_yinianzhijian from '../../assets/audioCover/zhangjie-yinianzhijian.png'
-
 //--------解决element-ui dialog组件第一次挂载时因visible=false导致el-dialog__body节点没有append进来引发的问题-------
 // 音乐播放器的容器DIV节点，初始挂在dialog组件的el-dialog节点中，最终要挂在el-dialog__body节点中
 const playerWrapper = document.createElement('div')
@@ -29,8 +19,6 @@ export default {
     return {
       dialogVisible: false,
       playing: true,
-      playbutton: null,// 播放按钮（暂未用）
-      volumebutton: null,// 声音按钮（暂未用）
       noSound: false
     }
   },
@@ -47,8 +35,6 @@ export default {
       this.dialogVisible = true
     },
     beforeCloseDialog(done) { // 关闭音乐盒子前的处理
-      this.playing = player.dom.playbutton.className === 'skPlayer-play-btn skPlayer-pause'
-      this.noSound = player.dom.volumebutton.className === 'skPlayer-icon skPlayer-quiet'
       done()
     },
     playerConfig() { // 音乐播放器插件配置
@@ -56,65 +42,61 @@ export default {
       if (dialogBody && dialogBody.className === 'el-dialog__body') {
         if (!dialogBody.childNodes.length) {
           dialogBody.appendChild(playerWrapper)
+          this.playing && player && player.play() // 防止dom节点移动时会暂停播放
         }
       } else {
         dialog.appendChild(playerWrapper)
+        this.playing && player && player.play()
       }
       if (player === null) {
         player = new SkPlayer({
           //可选项,自动播放,默认为false,true/false
-          autoplay: false,
+          autoplay: true,
           //可选项,列表显示,默认为true,true/false
           listshow: true,
           //可选项,循环模式,默认为'listloop','listloop',列表循环,'singleloop',单曲循环
           mode: 'listloop',
           //必需项,音乐配置
-          music: {
-            //必需项,自配置文件方式指定填'file'
-            type: 'file',
-            //必需项,音乐文件数组
-            source: [
-              {
-                name: '娑婆世界',
-                author: '张杰',
-                src: song_suoposhijie,
-                cover: cover_suoposhijie
-              },
-              {
-                name: '一念之间',
-                author: '张杰/莫文蔚',
-                src: song_yinianzhijian,
-                cover: cover_yinianzhijian
-              },
-              {
-                name: 'Maps',
-                author: 'Maroon 5',
-                src: song_maps,
-                cover: cover_maps
-              },
-              {
-                name: 'This Love',
-                author: 'Maroon 5',
-                src: song_thislove,
-                cover: cover_thislove
-              }
-            ]
+          music: { // 网易云歌单,登录网易云网页版,在网页地址中拿到 ... playlist?id=317921676
+            //必需项,网易云方式指定填'cloud'
+            type: 'cloud',
+            //必需项,网易云音乐歌单id
+            source: 164590714
           }
         })
-        this.playbutton = player.dom.playbutton
-        this.volumebutton = player.dom.volumebutton
+
+        // console.log('------->', player)
+        // console.log('------->', player.play)
+        // console.log('------->', player.pause)
+        // console.log('------->', player.toggle)
+        // console.log('------->', player.toggleMute) // 静音
+
+        //重写插件的api，为了取到播放状态：播放中/暂停
+        const _this = this
+        player.play = function () {
+          player.audio.paused && (player.audio.play(), player.dom.playbutton.classList.add("skPlayer-pause"), player.dom.cover.classList.add("skPlayer-pause"))
+          _this.playing = true
+        }
+        player.pause = function () {
+          player.audio.paused || (player.audio.pause(), player.dom.playbutton.classList.remove("skPlayer-pause"), player.dom.cover.classList.remove("skPlayer-pause"))
+          _this.playing = false
+        }
+        player.toggle = function () {
+          !_this.playing ? player.play() : player.pause()
+        }
+        player.toggleMute = function () {
+          _this.noSound = !_this.noSound
+          player.audio.muted ? (player.audio.muted = !1, player.dom.volumebutton.classList.remove("skPlayer-quiet"), player.dom.volumeline_value.style.width = s.percentFormat(player.audio.volume)) : (player.audio.muted = !0, player.dom.volumebutton.classList.add("skPlayer-quiet"), player.dom.volumeline_value.style.width = "0%")
+        }
       }
-      this.playing && player !== null ? player.play() : ''
     },
     toggleSound() {
-      this.noSound = !this.noSound
       player.toggleMute()
     },
     prePlay() {
       player.prev()
     },
     togglePlay() {
-      this.playing = !this.playing
       player.toggle()
     },
     nextPlay() {
