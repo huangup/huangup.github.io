@@ -94,6 +94,8 @@ export default {
           player.root.classList.contains("skPlayer-list-on") ? player.root.classList.remove("skPlayer-list-on") : player.root.classList.add("skPlayer-list-on")
           playerWrapper.style.height = _this.listShow ? '277px' : '100px'
         }
+
+        player.play()
       }
     },
     toggleSound() {
