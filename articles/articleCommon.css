@@ -1,7 +1,7 @@
-/** {
+* {
   margin: 0;
   padding: 0;
-}*/
+}
 
 /*p, div, h1, h2, h3 {
   word-break: break-all;
@@ -20,8 +20,3 @@ p {
   margin-top: 20px;
   text-indent: 34px;
 }*/
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
