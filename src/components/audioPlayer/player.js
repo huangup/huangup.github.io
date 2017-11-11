@@ -4,8 +4,7 @@ import SkPlayer from 'skplayer'
 // 音乐播放器的容器DIV节点，初始挂在dialog组件的el-dialog节点中，最终要挂在el-dialog__body节点中
 const playerWrapper = document.createElement('div')
 playerWrapper.id = 'skPlayer'
-playerWrapper.style.width = '380px'
-playerWrapper.style.height = '238px'
+playerWrapper.style.height = '277px' || '100px'
 
 let player = null // 插件配置实例化出来的音乐播放器对象
 
@@ -19,7 +18,8 @@ export default {
     return {
       dialogVisible: false,
       playing: true,
-      noSound: false
+      noSound: false,
+      listShow: true
     }
   },
   mounted() {
@@ -69,9 +69,10 @@ export default {
         // console.log('------->', player.play)
         // console.log('------->', player.pause)
         // console.log('------->', player.toggle)
-        // console.log('------->', player.toggleMute) // 静音
+        // console.log('------->', player.toggleMute) // 静音/取消
+        console.log('------->', player.toggleList) // 隐藏/显示列表
 
-        //重写插件的api，为了取到播放状态：播放中/暂停
+        // skPlayer插件未提供'操作'的回调，so重写插件的api
         const _this = this
         player.play = function () {
           player.audio.paused && (player.audio.play(), player.dom.playbutton.classList.add("skPlayer-pause"), player.dom.cover.classList.add("skPlayer-pause"))
@@ -87,6 +88,11 @@ export default {
         player.toggleMute = function () {
           _this.noSound = !_this.noSound
           player.audio.muted ? (player.audio.muted = !1, player.dom.volumebutton.classList.remove("skPlayer-quiet"), player.dom.volumeline_value.style.width = s.percentFormat(player.audio.volume)) : (player.audio.muted = !0, player.dom.volumebutton.classList.add("skPlayer-quiet"), player.dom.volumeline_value.style.width = "0%")
+        }
+        player.toggleList = function () {
+          _this.listShow = !_this.listShow
+          player.root.classList.contains("skPlayer-list-on") ? player.root.classList.remove("skPlayer-list-on") : player.root.classList.add("skPlayer-list-on")
+          playerWrapper.style.height = _this.listShow ? '277px' : '100px'
         }
       }
     },
