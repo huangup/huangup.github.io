@@ -42,11 +42,12 @@ export default {
       if (dialogBody && dialogBody.className === 'el-dialog__body') {
         if (!dialogBody.childNodes.length) {
           dialogBody.appendChild(playerWrapper)
-          this.playing && player && player.play() // 防止dom节点移动时会暂停播放
+          if (player && this.playing) {
+            player.play() // 防止dom节点移动时会暂停播放
+          }
         }
       } else {
         dialog.appendChild(playerWrapper)
-        this.playing && player && player.play()
       }
       if (player === null) {
         player = new SkPlayer({
@@ -64,38 +65,29 @@ export default {
             source: 993495939
           }
         })
-
-        // console.log('------->', player)
-        // console.log('------->', player.play)
-        // console.log('------->', player.pause)
-        // console.log('------->', player.toggle)
-        // console.log('------->', player.toggleMute) // 静音/取消
-        // console.log('------->', player.toggleList) // 隐藏/显示列表
-
         // skPlayer插件未提供'操作'的回调，so重写插件的api
-        const _this = this
-        player.play = function () {
-          player.audio.paused && (player.audio.play(), player.dom.playbutton.classList.add("skPlayer-pause"), player.dom.cover.classList.add("skPlayer-pause"))
-          _this.playing = true
+        player.play = () => {
+          if (player.audio && player.dom) {
+            player.audio.paused && (player.audio.play(), player.dom.playbutton.classList.add("skPlayer-pause"), player.dom.cover.classList.add("skPlayer-pause"))
+            this.playing = true
+          }
         }
-        player.pause = function () {
+        player.pause = () => {
           player.audio.paused || (player.audio.pause(), player.dom.playbutton.classList.remove("skPlayer-pause"), player.dom.cover.classList.remove("skPlayer-pause"))
-          _this.playing = false
+          this.playing = false
         }
-        player.toggle = function () {
-          !_this.playing ? player.play() : player.pause()
+        player.toggle = () => {
+          !this.playing ? player.play() : player.pause()
         }
-        player.toggleMute = function () {
-          _this.noSound = !_this.noSound
+        player.toggleMute = () => {
+          this.noSound = !this.noSound
           player.audio.muted ? (player.audio.muted = !1, player.dom.volumebutton.classList.remove("skPlayer-quiet"), player.dom.volumeline_value.style.width = s.percentFormat(player.audio.volume)) : (player.audio.muted = !0, player.dom.volumebutton.classList.add("skPlayer-quiet"), player.dom.volumeline_value.style.width = "0%")
         }
-        player.toggleList = function () {
-          _this.listShow = !_this.listShow
+        player.toggleList = () => {
+          this.listShow = !this.listShow
           player.root.classList.contains("skPlayer-list-on") ? player.root.classList.remove("skPlayer-list-on") : player.root.classList.add("skPlayer-list-on")
-          playerWrapper.style.height = _this.listShow ? '277px' : '100px'
+          playerWrapper.style.height = this.listShow ? '277px' : '100px'
         }
-
-        player.play()
       }
     },
     toggleSound() {
