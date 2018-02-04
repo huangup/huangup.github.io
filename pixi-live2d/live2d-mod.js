@@ -1,6 +1,6 @@
-const 
+const
     GAME_W = 150,
-    GAME_H = 400,
+    GAME_H = 300,
     GAME_RATIO = GAME_W / GAME_H,
     GAME_ORIENTATION = 'landscape'
 
