@@ -17,5 +17,10 @@ export default {
     }, false)
   },
   mounted() {
+  },
+  methods: {
+    goBack() {
+      this.$router.back(-1)
+    }
   }
 }

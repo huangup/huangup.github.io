@@ -1,4 +1,5 @@
 <div class="iframeContainer" ref="iframeContainer">
+  <el-button class="goBack" type="primary" icon="el-icon-back" @click="goBack"></el-button>
   <iframe id="articleIframe" :src="'http://www.huangup.top/articles/' + articleId + '.html'" :height="iframeHeight"></iframe>
   <!--<iframe id="articleIframe" :src="'https://huangup.github.io/articles/' + articleId + '.html'" :height="iframeHeight"></iframe>-->
   <!--<iframe id="articleIframe" :src="'http://localhost:8089/' + articleId + '.html'" :height="iframeHeight"></iframe>-->
