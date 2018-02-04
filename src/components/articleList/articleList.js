@@ -1,4 +1,4 @@
-import articles from '../../../articles/articleList.json'
+import articles from '../articles/articleList.json'
 import Pagination from '../pagination/pagination.vue'
 
 export default {
