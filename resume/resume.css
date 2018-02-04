@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 10px;
+}
+
+.resume_container {
+  width: 700px;
+  height: 1000px;
+  margin: 50px auto 0;
+  background-color: #54A654;
+  color: #ffffff;
+}
