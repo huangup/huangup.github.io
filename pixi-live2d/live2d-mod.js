@@ -12,6 +12,7 @@ const stage = new PIXI.Container();
 renderer.view.style.position = "fixed";
 renderer.view.style.bottom = "0px";
 renderer.view.style.right = "0px";
+renderer.view.style.zIndex = 1000;
 
 const modelHaru = {
 	"type": "Live2D Model Setting",
