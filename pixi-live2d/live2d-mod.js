@@ -8,9 +8,10 @@ const renderer = new PIXI.WebGLRenderer(GAME_W, GAME_H, {transparent: true,autoR
 document.getElementById('live2d').appendChild(renderer.view);
 const stage = new PIXI.Container();
 
+// 人物位置
 renderer.view.style.position = "fixed";
 renderer.view.style.bottom = "0px";
-renderer.view.style.left = "0px";
+renderer.view.style.right = "0px";
 
 const modelHaru = {
 	"type": "Live2D Model Setting",
