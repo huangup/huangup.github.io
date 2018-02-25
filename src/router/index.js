@@ -23,5 +23,6 @@ export default new Router({
       name: 'articleDetail',
       component: ArticleDetail
     }
-  ]
+  ],
+  mode: 'history'
 })
