@@ -13,7 +13,7 @@
   },
   {
     "id": 4,
-    "title": "什么是RESTful架构？"
+    "title": "RESTful架构"
   },
   {
     "id": 5,
@@ -26,14 +26,6 @@
   {
     "id": 7,
     "title": "React设计思想"
-  },
-  {
-    "id": 8,
-    "title": "Angular设计思想"
-  },
-  {
-    "id": 9,
-    "title": "Vue设计思想"
   },
   {
     "id": 10,
@@ -50,9 +42,5 @@
   {
     "id": 13,
     "title": "npm使用总结"
-  },
-  {
-    "id": 14,
-    "vue": "动态组件使用"
   }
 ]
