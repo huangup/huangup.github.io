@@ -1,5 +1,11 @@
-import articles from '../articles/articleList.json'
+// import articles from '../articles/articleList.json'
 import Pagination from '../pagination/pagination.vue'
+
+// mock
+const articles = []
+for (let i = 0; i < 1000; i++) {
+  articles.push({id: i, title: 'demo' + i})
+}
 
 export default {
   data() {

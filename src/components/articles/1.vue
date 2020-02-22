@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!--<div>
     <h1 style="font-size: 32px; font-weight: bold; border-bottom: 2px solid rgb(204, 204, 204); padding: 0px 4px 0px 0px; text-align: center; margin: 0px 0px 5px; line-height: normal; text-indent: 2em;">
       <strong>
         <span style="font-family: 隶书, SimLi;">
@@ -37,7 +37,7 @@
     </p>
     <p style="margin-top: 10px; text-indent: 2em;"><span style="font-size: 18px; font-family: 隶书, SimLi;">3. 并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</span>
     </p>
-  </div>
+  </div>-->
 </template>
 <script>
   export default {
