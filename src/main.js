@@ -1,17 +1,60 @@
-import Vue from 'vue'
-import ElementUI from 'element-ui'
-import App from './app/app.vue'
-import router from './router'
-import 'element-ui/lib/theme-chalk/index.css'
-import './assets/styles/style.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import createStore from './store/createStore'
+import 'antd/dist/antd.css'
+import './styles/main.scss'
 
-Vue.use(ElementUI)
+// Store Initialization
+// ------------------------------------
+const store = createStore(window.__INITIAL_STATE__)
 
-Vue.config.productionTip = false
+// Render Setup
+// ------------------------------------
+const MOUNT_NODE = document.getElementById('root')
 
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: {App}
-})
+let render = () => {
+  const App = require('./components/App').default
+  const routes = require('./routes/index').default(store)
+
+  ReactDOM.render(
+    <App store={store} routes={routes} />,
+    MOUNT_NODE
+  )
+}
+
+// Development Tools
+// ------------------------------------
+if (__DEV__) {
+  if (module.hot) {
+    const renderApp = render
+    const renderError = (error) => {
+      const RedBox = require('redbox-react').default
+
+      ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
+    }
+
+    render = () => {
+      try {
+        renderApp()
+      } catch (e) {
+        console.error(e)
+        renderError(e)
+      }
+    }
+
+    // Setup hot module replacement
+    module.hot.accept([
+      './components/App',
+      './routes/index',
+    ], () =>
+      setImmediate(() => {
+        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
+        render()
+      })
+    )
+  }
+}
+
+// Let's Go!
+// ------------------------------------
+if (!__TEST__) render()
