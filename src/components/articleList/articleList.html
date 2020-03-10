@@ -1,0 +1,20 @@
+<div class="articleListContainer">
+  <el-table :data="tableData"
+            stripe
+            style="width: 100%"
+            :header-cell-style="headerCellStyleCallback"
+            :cell-style="cellStyleCallback"
+            @cell-click="tableCellClick">
+    <el-table-column prop="articleTitle"
+                     label="博客文章"
+                     width="transparent">
+    </el-table-column>
+  </el-table>
+  <div class="paginationContainer">
+    <pagination :pageIndex="pageIndex"
+                :pageSize="pageSize"
+                :total="total"
+                :onPageChange="onPageChange">
+    </pagination>
+  </div>
+</div>
