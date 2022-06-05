@@ -1,20 +1,19 @@
 export default {
   data() {
     return {
-      menuIndex: '/',
-    };
+      menuIndex: '/'
+    }
   },
   mounted() {
-    this.changeMenuByRoute();
+    this.changeMenuByRoute()
   },
   watch: {
     $route() {
-      this.changeMenuByRoute();
-    },
+      this.changeMenuByRoute()
+    }
   },
   methods: {
-    changeMenuByRoute() {
-      // 解决左边栏选中问题(路由地址对应选中项)
+    changeMenuByRoute() { // 解决左边栏选中问题(路由地址对应选中项)
       switch (this.$route.path) {
         case '/':
           this.menuIndex = '/';
@@ -26,6 +25,6 @@ export default {
           this.menuIndex = '/';
           break;
       }
-    },
-  },
+    }
+  }
 };
